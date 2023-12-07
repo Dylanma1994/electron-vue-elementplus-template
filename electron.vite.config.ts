@@ -1,6 +1,12 @@
 import { resolve } from 'path'
 import { defineConfig, externalizeDepsPlugin } from 'electron-vite'
 import vue from '@vitejs/plugin-vue'
+import UnocssVitePlugin from "unocss/vite"
+
+const root: string = process.cwd()
+function pathResolve(dir: string): string {
+  return resolve(root, dir, 'renderer')
+}
 
 export default defineConfig({
   main: {
@@ -11,10 +17,13 @@ export default defineConfig({
   },
   renderer: {
     resolve: {
-      alias: {
-        '@renderer': resolve('src/renderer')
-      }
+      alias: [
+        {
+          find: /\@\//,
+          replacement: `${pathResolve('src')}/`
+        }
+      ]
     },
-    plugins: [vue()]
+    plugins: [vue(), UnocssVitePlugin()]
   }
 })
