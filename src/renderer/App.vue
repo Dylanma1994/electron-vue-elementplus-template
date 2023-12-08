@@ -1,17 +1,11 @@
 <script setup lang="ts">
-import {computed, ref} from "vue";
-import Layout from "./layout/Layout.vue";
-import zhCn from 'element-plus/dist/locale/zh-cn.mjs';
-import en from 'element-plus/dist/locale/en.mjs';
-
-const language = ref('zh-cn')
-const locale = computed(() => (language.value === 'zh-cn' ? zhCn : en))
+import { ConfigGlobal } from '@/components/ConfigGlobal'
 </script>
 
 <template>
-  <el-config-provider :locale="locale">
-    <Layout />
-  </el-config-provider>
+  <ConfigGlobal>
+    <RouterView />
+  </ConfigGlobal>
 </template>
 
 <style lang="less">

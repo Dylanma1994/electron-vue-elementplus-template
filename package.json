@@ -25,7 +25,8 @@
     "autoprefixer": "^10.4.16",
     "electron-updater": "^6.1.1",
     "element-plus": "^2.4.3",
-    "postcss": "^8.4.32"
+    "postcss": "^8.4.32",
+    "vue-router": "^4.0.13"
   },
   "devDependencies": {
     "@electron-toolkit/eslint-config": "^1.0.1",
