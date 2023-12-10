@@ -5,7 +5,7 @@ import UnocssVitePlugin from "unocss/vite"
 
 const root: string = process.cwd()
 function pathResolve(dir: string): string {
-  return resolve(root, dir, 'renderer')
+  return resolve(root, dir)
 }
 
 export default defineConfig({
@@ -20,7 +20,7 @@ export default defineConfig({
       alias: [
         {
           find: /\@\//,
-          replacement: `${pathResolve('src')}/`
+          replacement: `${pathResolve('src/renderer')}/`
         }
       ]
     },
