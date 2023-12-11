@@ -17,6 +17,14 @@ export default defineConfig({
     plugins: [externalizeDepsPlugin()]
   },
   renderer: {
+    css: {
+      preprocessorOptions: {
+        less: {
+          additionalData: '@import "./src/renderer/styles/variables.module.less";',
+          javascriptEnabled: true
+        }
+      }
+    },
     resolve: {
       alias: [
         {

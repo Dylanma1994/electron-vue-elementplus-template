@@ -4,7 +4,7 @@ import { defineComponent } from 'vue'
 interface RouteMetaCustom extends Record<String | number | symbol, unknown> {
   hidden?: boolean,
   title?: string,
-  icon?: string | ReturnType<typeof defineComponent>,
+  icon?: string,
   activeMenu?: boolean
 }
 

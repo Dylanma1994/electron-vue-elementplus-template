@@ -5,53 +5,72 @@ import { Menu } from '@/components/Menu'
 import { ElScrollbar } from 'element-plus'
 import ToolHeader from '@/layout/components/ToolHeader.vue'
 import AppView from '@/layout/components/AppView.vue'
+import { useDesign } from '@/hooks/useDesign'
 
 
 export const renderClassic = () => {
+
+  const { getPrefixCls } = useDesign()
+
+  const prefixCls = getPrefixCls('layout')
 
   const appStore = useAppStore()
 
   const collapse = ref(appStore.getCollapse)
   const tagsView = ref(appStore.getTagsView)
-
-  console.log(collapse.value, tagsView.value)
-  console.log('this is renderClassic')
+  const mobile = ref(appStore.mobile)
 
   return (
-    // jsx语法
     <>
       <div
         class={[
-          'absolute top-0 left-0 h-full layout-border__right'
+          'absolute top-0 left-0 h-full layout-border__right',
+          { '!fixed z-3000': mobile.value }
         ]}
       >
         <Logo
           class={[
             'bg-[var(--left-menu-bg-color)] relative',
             {
+              '!pl-0': mobile.value && collapse.value,
               'w-[var(--left-menu-min-width)]': appStore.getCollapse,
               'w-[var(--left-menu-max-width)]': !appStore.getCollapse
             }
           ]}
           style="transition: all var(--transition-time-02);"
-        />
-        <Menu class={['!h-[calc(100%-var(--logo-height))]']} />
+        ></Logo>
+        <Menu class={['!h-[calc(100%-var(--logo-height))]']}></Menu>
       </div>
-      <div>
+      <div
+        class={[
+          `${prefixCls}-content`,
+          'absolute top-0 h-[100%]',
+          {
+            'w-[calc(100%-var(--left-menu-min-width))] left-[var(--left-menu-min-width)]':
+              collapse.value && !mobile.value && !mobile.value,
+            'w-[calc(100%-var(--left-menu-max-width))] left-[var(--left-menu-max-width)]':
+              !collapse.value && !mobile.value && !mobile.value,
+            'fixed !w-full !left-0': mobile.value
+          }
+        ]}
+        style="transition: all var(--transition-time-02);"
+      >
         <ElScrollbar
-          v-loading={true}
+          v-loading={pageLoading.value}
           class={[
+            `${prefixCls}-content-scrollbar`,
             '!h-[calc(100%-var(--top-tool-height)-var(--tags-view-height))] mt-[calc(var(--top-tool-height)+var(--tags-view-height))]'
           ]}
         >
           <div
             class={[
-              'fixed top-0 left-0 z-10',
               {
+                'fixed top-0 left-0 z-10',
                 'w-[calc(100%-var(--left-menu-min-width))] !left-[var(--left-menu-min-width)]':
-                collapse.value,
+                  collapse.value && !mobile.value,
                 'w-[calc(100%-var(--left-menu-max-width))] !left-[var(--left-menu-max-width)]':
-                  !collapse.value
+                  !collapse.value && !mobile.value,
+                '!w-full !left-0': mobile.value
               }
             ]}
             style="transition: all var(--transition-time-02);"
@@ -65,7 +84,11 @@ export const renderClassic = () => {
               ]}
             ></ToolHeader>
 
+            {tagsView.value ? (
+              <TagsView class="layout-border__bottom layout-border__top"></TagsView>
+            ) : undefined}
           </div>
+
           <AppView></AppView>
         </ElScrollbar>
       </div>

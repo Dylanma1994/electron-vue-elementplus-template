@@ -6,23 +6,31 @@ import { HomeFilled, Cloudy } from '@element-plus/icons-vue'
 export const routes: AppRouteRecordRaw[] = [
   {
     path: '/',
-    redirect: '/home',
+    redirect: '/dashboard',
+    component: Layout,
+    name: 'root',
     meta: {
       hidden: true
     }
   },
   {
-    path: '/home',
-    name: '首页',
+    path: '/dashboard',
     component: Layout,
+    redirect: '/dashboard/index',
+    name: '首页',
     meta: {
-      icon: HomeFilled
+      title: 'Dashboard',
+      icon: 'ant-design:dashboard-filled'
     },
     children: [
       {
-        path: '/index',
+        path: 'index',
         name: '首页',
-        meta: {},
+        meta: {
+          title: '首页',
+          noCache: true,
+          affix: true
+        },
         component: () => import('@/views/Home.vue')
       }
     ]
@@ -31,20 +39,24 @@ export const routes: AppRouteRecordRaw[] = [
     path: '/vast',
     component: Layout,
     name: 'Vast挖矿',
-    meta: {
-      icon: Cloudy
-    },
+    meta: {},
     children: [
       {
-        path: '/normal',
+        path: 'normal',
         name: '常规模式',
-        meta: {},
+        meta: {
+          title: '常规模式',
+          icon: 'clarity:document-solid'
+        },
         component: () => import('@/views/vast/Normal.vue')
       },
       {
-        path: '/super',
+        path: 'super',
         name: '超级模式',
-        meta: {},
+        meta: {
+          title: '超级模式',
+          icon: 'clarity:document-solid'
+        },
         component: () => import('@/views/vast/Super.vue')
       }
     ]

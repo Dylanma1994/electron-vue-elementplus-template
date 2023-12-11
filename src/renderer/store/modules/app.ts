@@ -12,13 +12,16 @@ interface AppState {
   dynamicRouter: boolean,
   screenFull: boolean,
   uniqueOpened: boolean,
-  tagsView: boolean
+  tagsView: boolean,
+  layout: LayoutType,
+  mobile: boolean
 }
 
 export const useAppStore = defineStore('app', {
   state: (): AppState => {
     return {
       breadcrumb: true,
+      mobile: false,
       breadcrumbIcon: true,
       collapse: true,
       locale: true,
@@ -28,7 +31,8 @@ export const useAppStore = defineStore('app', {
       dynamicRouter: false,
       screenFull: true,
       uniqueOpened: false,
-      tagsView: false
+      tagsView: false,
+      layout: 'classic',
     }
   },
   getters: {
@@ -41,11 +45,14 @@ export const useAppStore = defineStore('app', {
     getCollapse(): boolean {
       return this.collapse
     },
+    getUniqueOpened(): boolean {
+      return this.uniqueOpened
+    },
     getTagsView(): boolean {
       return this.tagsView
     },
-    getUniqueOpened(): boolean {
-      return this.uniqueOpened
+    getLayout(): LayoutType {
+      return this.layout
     },
     getScreenFull(): boolean {
       return this.screenFull
@@ -64,7 +71,17 @@ export const useAppStore = defineStore('app', {
     },
     getIsDark(): boolean {
       return this.isDark
-    }
+    },
+    setLayout(layout: LayoutType) {
+      if (this.mobile && layout !== 'classic') {
+        ElMessage.warning('移动端模式下不支持切换其它布局')
+        return
+      }
+      this.layout = layout
+    },
+    getMobile(): boolean {
+      return this.mobile
+    },
   },
   actions: {
     setBreadcrumb(breadcrumb: boolean) {
@@ -103,7 +120,10 @@ export const useAppStore = defineStore('app', {
         document.documentElement.classList.add('light')
         document.documentElement.classList.remove('dark')
       }
-    }
+    },
+    setMobile(mobile: boolean) {
+      this.mobile = mobile
+    },
   }
 })
 

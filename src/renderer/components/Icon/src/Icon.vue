@@ -3,6 +3,11 @@ import { computed, unref } from 'vue'
 import { ElIcon } from 'element-plus'
 import { propTypes } from '@/utils/propTypes'
 import { Icon } from '@iconify/vue'
+import { useDesign } from '@/hooks/useDesign'
+
+const { getPrefixCls } = useDesign()
+
+const prefixCls = getPrefixCls('icon')
 
 const props = defineProps({
   // icon name
