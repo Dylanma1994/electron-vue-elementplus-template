@@ -1,12 +1,5 @@
 <script setup lang="ts">
-import { useAppStore } from '@/store/modules/app'
-import { computed } from 'vue'
-import { Collapse } from '@/components/Collapse'
 import { LocaleDropdown } from '@/components/LocaleDropdown'
-
-const appStore = useAppStore()
-
-const locale = computed(() => appStore.getLocale)
 
 </script>
 

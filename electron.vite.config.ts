@@ -1,6 +1,7 @@
 import { resolve } from 'path'
 import { defineConfig, externalizeDepsPlugin } from 'electron-vite'
 import vue from '@vitejs/plugin-vue'
+import VueJsx from '@vitejs/plugin-vue-jsx'
 import UnocssVitePlugin from "unocss/vite"
 
 const root: string = process.cwd()
@@ -24,6 +25,6 @@ export default defineConfig({
         }
       ]
     },
-    plugins: [vue(), UnocssVitePlugin()]
+    plugins: [vue(), UnocssVitePlugin(), VueJsx()]
   }
 })

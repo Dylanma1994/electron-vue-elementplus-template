@@ -1,4 +1,5 @@
 import { defineStore } from 'pinia'
+import { store } from '@/store'
 
 interface AppState {
   breadcrumb: boolean,
@@ -27,7 +28,7 @@ export const useAppStore = defineStore('app', {
       dynamicRouter: false,
       screenFull: true,
       uniqueOpened: false,
-      tagsView: true
+      tagsView: false
     }
   },
   getters: {
@@ -105,3 +106,7 @@ export const useAppStore = defineStore('app', {
     }
   }
 })
+
+export const useAppStoreWithOut = () => {
+  return useAppStore(store)
+}

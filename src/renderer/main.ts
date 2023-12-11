@@ -11,6 +11,8 @@ import 'element-plus/dist/index.css'
 // store
 import { setupStore } from '@/store'
 
+import { setupGlobCom } from '@/components'
+
 // global style
 import '@/styles/index.less'
 
@@ -23,9 +25,11 @@ import App from './App.vue'
 const setupAll = async () => {
   const app = createApp(App)
 
+  setupStore(app)
+
   await setupI18n(app)
 
-  setupStore(app)
+  setupGlobCom(app)
 
   setupElementPlus(app)
 

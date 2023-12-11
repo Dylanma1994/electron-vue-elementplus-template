@@ -1,8 +1,8 @@
 <script setup lang="ts">
 import { useAppStore } from '@/store/modules/app'
 import { useRouter } from 'vue-router'
-import { computed, PropType, unref } from "vue"
-import { routes } from '@/router'
+import { computed, PropType, unref } from 'vue'
+import router from '@/router'
 import { isUrl } from '@/utils/is'
 
 const props = defineProps({
@@ -42,6 +42,8 @@ const menuSelect = (index: string) => {
   }
 }
 
+const routes = router.getRoutes()
+
 </script>
 
 <template>
@@ -51,31 +53,11 @@ const menuSelect = (index: string) => {
     :collapse="collapse"
     :uniqueOpened=true
     :onSelect="menuSelect"
+    background-color="var(--left-menu-bg-color)"
+    text-color="var(--left-menu-text-color)"
+    active-text-color="var(--left-menu-text-active-color)"
   >
-    <template v-for="route in routes">
-      <template v-if="!route.meta.hidden">
-        <template v-if="route.children">
-          <el-sub-menu :index="route.path" :key="route.path">
-            <template #title>
-              <el-icon v-if="route.meta.icon">
-                <component :is="route.meta.icon"/>
-              </el-icon>
-              <span>{{ route.name }}</span>
-            </template>
-            <el-menu-item v-for="child in route.children" :index="child.path" :key="child.path">
-              <router-link :to="child.path">{{ child.name }}</router-link>
-            </el-menu-item>
-          </el-sub-menu>
-        </template>
-        <template v-else>
-          <el-menu-item v-if="!route.meta.hidden" :index="route.path" :key="route.path">
-            <i :class="`el-icon-${route.meta.icon}`"></i>
-            <span>{{ route.name }}</span>
-            <router-link :to="route.path"></router-link>
-          </el-menu-item>
-        </template>
-      </template>
-    </template>
+
 
   </el-menu>
 </template>

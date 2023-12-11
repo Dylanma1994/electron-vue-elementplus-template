@@ -6,7 +6,6 @@ import { HomeFilled, Cloudy } from '@element-plus/icons-vue'
 export const routes: AppRouteRecordRaw[] = [
   {
     path: '/',
-    component: Layout,
     redirect: '/home',
     meta: {
       hidden: true

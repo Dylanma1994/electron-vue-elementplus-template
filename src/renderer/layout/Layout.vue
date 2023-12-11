@@ -1,14 +1,19 @@
-<script setup lang="ts">
-import { useRenderLayout } from './components/useRenderLayout'
+<script lang="tsx">
+import { renderClassic } from '@/layout/components/useRenderLayout'
+import { defineComponent } from 'vue'
 
-const { renderClassic } = useRenderLayout()
+export default defineComponent({
+  name: 'Layout',
+  setup() {
+    return () => (
+      <section class="w-[100%] h-[100%] relative">
+        {renderClassic()}
+      </section>
+    )
+  }
+})
+
 </script>
-
-<template>
-  <section class="w-[100%] h-[100%] relative">
-    {{ renderClassic() }}
-  </section>
-</template>
 
 <style scoped lang="less">
 </style>

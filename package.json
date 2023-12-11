@@ -23,6 +23,7 @@
     "@electron-toolkit/preload": "^2.0.0",
     "@electron-toolkit/utils": "^2.0.0",
     "@iconify/vue": "^4.1.1",
+    "@vitejs/plugin-vue-jsx": "^3.1.0",
     "autoprefixer": "^10.4.16",
     "electron-updater": "^6.1.1",
     "element-plus": "^2.4.3",

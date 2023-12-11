@@ -1,4 +1,5 @@
 import { defineStore } from 'pinia'
+import { store } from '../index'
 import zhCn from 'element-plus/es/locale/lang/zh-cn'
 import en from 'element-plus/es/locale/lang/en'
 import { useStorage } from '@/hooks/useStorage'
