@@ -40,10 +40,20 @@ const getIconifyStyle = computed(() => {
       <use :xlink:href="symbolId" />
     </svg>
 
-    <Icon v-else :icon="icon" :style="getIconifyStyle" />
+    <Icon v-else :icon="icon" />
   </ElIcon>
 </template>
 
 <style lang="less" scoped>
+@prefix-cls: ~'@{namespace}-icon';
 
+.@{prefix-cls},
+.iconify {
+  &:hover {
+    :deep(svg) {
+      // stylelint-disable-next-line
+      color: v-bind(hoverColor) !important;
+    }
+  }
+}
 </style>

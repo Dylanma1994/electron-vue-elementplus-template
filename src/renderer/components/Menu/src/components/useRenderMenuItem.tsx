@@ -8,7 +8,6 @@ import { useDesign } from '@/hooks/useDesign'
 const { renderMenuTitle } = useRenderMenuTitle()
 
 export const useRenderMenuItem = (menuMode = 'vertical') => {
-
   const renderMenuItem = (routers: AppRouteRecordRaw[], parentPath = '/') => {
     return routers.map((v) => {
       const meta = v.meta ?? {}

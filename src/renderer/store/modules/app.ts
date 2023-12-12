@@ -123,8 +123,9 @@ export const useAppStore = defineStore('app', {
     },
     setMobile(mobile: boolean) {
       this.mobile = mobile
-    },
-  }
+    }
+  },
+  persist: true
 })
 
 export const useAppStoreWithOut = () => {

@@ -7,7 +7,6 @@ import ToolHeader from '@/layout/components/ToolHeader.vue'
 import AppView from '@/layout/components/AppView.vue'
 import { useDesign } from '@/hooks/useDesign'
 
-
 export const renderClassic = () => {
 
   const { getPrefixCls } = useDesign()
@@ -19,6 +18,7 @@ export const renderClassic = () => {
   const collapse = ref(appStore.getCollapse)
   const tagsView = ref(appStore.getTagsView)
   const mobile = ref(appStore.mobile)
+  const pageLoading = ref(appStore.pageLoading)
 
   return (
     <>
@@ -64,8 +64,8 @@ export const renderClassic = () => {
         >
           <div
             class={[
+              'fixed top-0 left-0 z-10',
               {
-                'fixed top-0 left-0 z-10',
                 'w-[calc(100%-var(--left-menu-min-width))] !left-[var(--left-menu-min-width)]':
                   collapse.value && !mobile.value,
                 'w-[calc(100%-var(--left-menu-max-width))] !left-[var(--left-menu-max-width)]':

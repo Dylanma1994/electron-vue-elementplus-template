@@ -3,7 +3,6 @@ import { useI18n } from '@/hooks/useI18n'
 import { RouteMetaCustom } from '@/types/router'
 
 export const useRenderMenuTitle = () => {
-
   const renderMenuTitle = (meta: RouteMetaCustom) => {
     const { t } = useI18n()
     const { title = 'Please set title', icon } = meta

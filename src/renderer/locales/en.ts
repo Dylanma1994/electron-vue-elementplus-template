@@ -1,4 +1,8 @@
 export default {
+  author: {
+    title: 'Power generation for love!❤️',
+    message: 'Can the author have a cup of coffee!☕️'
+  },
   common: {
     inputText: 'Please input',
     selectText: 'Please select',

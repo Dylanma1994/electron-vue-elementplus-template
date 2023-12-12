@@ -20,7 +20,7 @@ export const routes: AppRouteRecordRaw[] = [
     name: '首页',
     meta: {
       title: 'Dashboard',
-      icon: 'ant-design:dashboard-filled'
+      icon: 'ant-design:home-outlined'
     },
     children: [
       {
@@ -28,8 +28,7 @@ export const routes: AppRouteRecordRaw[] = [
         name: '首页',
         meta: {
           title: '首页',
-          noCache: true,
-          affix: true
+          icon: 'ant-design:home-outlined'
         },
         component: () => import('@/views/Home.vue')
       }
@@ -38,15 +37,17 @@ export const routes: AppRouteRecordRaw[] = [
   {
     path: '/vast',
     component: Layout,
-    name: 'Vast挖矿',
-    meta: {},
+    name: 'Vast',
+    meta: {
+      title: 'Vast挖矿',
+      icon: 'ant-design:cloud-server-outlined'
+    },
     children: [
       {
         path: 'normal',
         name: '常规模式',
         meta: {
-          title: '常规模式',
-          icon: 'clarity:document-solid'
+          title: '常规模式'
         },
         component: () => import('@/views/vast/Normal.vue')
       },
@@ -54,8 +55,7 @@ export const routes: AppRouteRecordRaw[] = [
         path: 'super',
         name: '超级模式',
         meta: {
-          title: '超级模式',
-          icon: 'clarity:document-solid'
+          title: '超级模式'
         },
         component: () => import('@/views/vast/Super.vue')
       }

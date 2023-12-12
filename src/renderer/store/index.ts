@@ -11,7 +11,6 @@ store.use(
 )
 
 export const setupStore = (app: App<Element>) => {
-  console.log('this is ssssssssssssssssssssssssssssssss')
   app.use(store)
 }
 

@@ -1,4 +1,8 @@
 export default {
+  author: {
+    title: '为爱发电!❤️',
+    message: '请作者喝一杯咖啡吧!☕️'
+  },
   common: {
     inputText: '请输入',
     selectText: '请选择',

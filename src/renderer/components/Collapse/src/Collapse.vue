@@ -15,7 +15,6 @@ const toggleCollapse = () => {
   const collapsed = unref(collapse)
   appStore.setCollapse(!collapsed)
 }
-
 </script>
 
 <template>
