@@ -1,6 +1,7 @@
 
 declare global {
 
+  declare type Nullable<T> = T | null
   declare interface Fn<T = any> {
     (...arg: T[]): T
   }

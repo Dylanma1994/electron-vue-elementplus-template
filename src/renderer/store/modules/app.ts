@@ -25,7 +25,7 @@ export const useAppStore = defineStore('app', {
       breadcrumbIcon: true,
       collapse: true,
       locale: true,
-      title: 'Web3-toolbox',
+      title: 'AppName',
       isDark: false,
       pageLoading: false,
       dynamicRouter: false,

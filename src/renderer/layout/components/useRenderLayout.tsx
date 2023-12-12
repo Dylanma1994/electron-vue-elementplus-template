@@ -59,7 +59,10 @@ export const renderClassic = () => {
           v-loading={pageLoading.value}
           class={[
             `${prefixCls}-content-scrollbar`,
-            '!h-[calc(100%-var(--top-tool-height)-var(--tags-view-height))] mt-[calc(var(--top-tool-height)+var(--tags-view-height))]'
+            {
+              '!h-[calc(100%-var(--top-tool-height)-var(--tags-view-height))] mt-[calc(var(--top-tool-height)+var(--tags-view-height))]': tagsView.value,
+              '!h-[calc(100%-var(--top-tool-height))] mt-[calc(var(--top-tool-height))]': !tagsView.value,
+            }
           ]}
         >
           <div

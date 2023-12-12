@@ -15,7 +15,7 @@ export const useUserStore = defineStore('user', {
     return {
       userInfo: {
         username: 'dylan',
-        description: 'this is a web3 toolbox'
+        description: 'this is a description about author!'
       }
     }
   },
