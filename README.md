@@ -1,6 +1,6 @@
-# miner-demo
+# electron-vue-elementplus-template
 
-An Electron application with Vue and TypeScript
+An Electron application with Vue and TypeScript and Element-plus
 
 ## Recommended IDE Setup
 
