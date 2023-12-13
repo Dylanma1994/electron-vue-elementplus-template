@@ -25,7 +25,7 @@ export const useAppStore = defineStore('app', {
       breadcrumbIcon: true,
       collapse: true,
       locale: true,
-      title: 'AppName',
+      title: import.meta.env.RENDERER_VITE_APP_TITLE,
       isDark: false,
       pageLoading: false,
       dynamicRouter: false,
