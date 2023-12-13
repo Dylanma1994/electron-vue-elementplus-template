@@ -16,6 +16,7 @@ function createWindow(): void {
       sandbox: false
     }
   })
+  mainWindow.maximize()
 
   mainWindow.on('ready-to-show', () => {
     mainWindow.show()

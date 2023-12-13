@@ -38,6 +38,7 @@ export const routes: AppRouteRecordRaw[] = [
   {
     path: '/menu1',
     component: Layout,
+    name: t('router.menu1'),
     meta: {
       title: t('router.menu1'),
       icon: 'ant-design:cloud-server-outlined'
@@ -45,6 +46,7 @@ export const routes: AppRouteRecordRaw[] = [
     children: [
       {
         path: 'menu11',
+        name: t('router.menu11'),
         meta: {
           title: t('router.menu11')
         },
@@ -52,6 +54,7 @@ export const routes: AppRouteRecordRaw[] = [
       },
       {
         path: 'menu12',
+        name: t('router.menu12'),
         meta: {
           title: t('router.menu12')
         },

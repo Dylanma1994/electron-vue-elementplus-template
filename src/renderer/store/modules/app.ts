@@ -31,7 +31,7 @@ export const useAppStore = defineStore('app', {
       dynamicRouter: false,
       screenFull: true,
       uniqueOpened: false,
-      tagsView: false,
+      tagsView: true,
       layout: 'classic',
     }
   },

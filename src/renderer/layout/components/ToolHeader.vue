@@ -12,7 +12,7 @@ const prefixCls = getPrefixCls('tool-header')
 
 <template>
   <div
-    id='`${variables.namespace}-tool-header`'
+    id="`${variables.namespace}-tool-header`"
     :class="[
       prefixCls,
       'h-[var(--top-tool-height)] relative px-[var(--top-tool-p-x)] flex items-center justify-between',

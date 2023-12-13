@@ -52,6 +52,7 @@ export default defineComponent({
     })
 
     const menuSelect = (index: string) => {
+      console.log(props.menuSelect)
       if (props.menuSelect) {
         props.menuSelect(index)
       }

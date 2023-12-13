@@ -6,6 +6,7 @@ import { ElScrollbar } from 'element-plus'
 import ToolHeader from '@/layout/components/ToolHeader.vue'
 import AppView from '@/layout/components/AppView.vue'
 import { useDesign } from '@/hooks/useDesign'
+import { TagsView } from '@/components/TagsView'
 
 export const renderClassic = () => {
 

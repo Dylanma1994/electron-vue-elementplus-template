@@ -20,7 +20,7 @@ const showDialog = () => {
 }
 
 const toDocument = () => {
-  window.open('https://github.com/Dylanma1994/miner-demo')
+  window.open('https://github.com/Dylanma1994/electron-vue-elementplus-template')
 }
 </script>
 
@@ -37,10 +37,10 @@ const toDocument = () => {
     </div>
     <template #dropdown>
       <ElDropdownMenu>
-        <ElDropdownItem divided>
-          <div @click="showDialog">{{ t('lock.lockScreen') }}</div>
-        </ElDropdownItem>
         <ElDropdownItem>
+          <div @click="showDialog">{{ t('author.title') }}</div>
+        </ElDropdownItem>
+        <ElDropdownItem divided>
           <div @click="toDocument">{{ t('common.document') }}</div>
         </ElDropdownItem>
       </ElDropdownMenu>

@@ -11,4 +11,7 @@ declare global {
   declare type LocaleType = 'zh-CN' | 'en'
 
   declare type LayoutType = 'classic' | 'topLeft' | 'top' | 'cutMenu'
+
+  declare type ComponentRef<T> = InstanceType<T>
+
 }

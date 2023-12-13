@@ -43,7 +43,7 @@ const handle = () => {
   >
     <div class="flex flex-col items-center">
       <img src="@/assets/imgs/avatar.jpg" alt="" class="w-70px h-70px rounded-[50%]" />
-      <span class="text-14px my-10px text-[var(--top-header-text-color)]">Archer</span>
+      <span class="text-14px my-10px text-[var(--top-header-text-color)]">Dylan</span>
     </div>
     <span>{{ dialogMessage }}</span>
     <template #footer>
